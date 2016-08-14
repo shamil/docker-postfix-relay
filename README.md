@@ -14,7 +14,7 @@ external mail relay address and credentials. The image is tested with `Amazon SE
 * Uses `alpine` image instead of `ubuntu`.
 * Uses `envsubst` for templating instead of `j2cli`.
 * All output goes to `stdout` and `stderr` including `maillog`.
-* Included `superviserd` event watcher wich will exit the `supervisord` process if one of the monitored processes dies unexpectedly.
+* Included `superviserd` event watcher which will exit the `supervisord` process if one of the monitored processes dies unexpectedly.
 * Doesn't use TLS on `smtpd` side.
 * And other changes to make the image as **KISS** as possible
 
@@ -24,10 +24,9 @@ Postfix on port `25`
 
 **Environment variables**
 
-* `RELAY_HOST_NAME=relay.example.com`: A DNS name for this relay container (default is Docker's hostname)
 * `ACCEPTED_NETWORKS=192.168.0.0/16 172.16.0.0/12 10.0.0.0/8`: A network (or a list of networks) to accept mail from
-* `EXT_RELAY_HOST=email-smtp.us-east-1.amazonaws.com`: External relay DNS name
-* `EXT_RELAY_PORT=25`: External relay TCP port
+* `SMTP_HOST=email-smtp.us-east-1.amazonaws.com`: External relay DNS name
+* `SMTP_PORT=25`: External relay TCP port
 * `SMTP_LOGIN=`: Login to connect to the external relay (required, otherwise the container fails to start)
 * `SMTP_PASSWORD=`: Password to connect to the external relay (required, otherwise the container fails to start)
 * `USE_TLS=`: Remote require tls. Might be "yes" or "no". Default: no.

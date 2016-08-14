@@ -7,9 +7,9 @@ inet_interfaces = all
 inet_protocols = ipv4
 
 # general params
-myhostname = $RELAY_HOST_NAME
+myhostname = $HOSTNAME
 mynetworks = 127.0.0.0/8 [::1]/128 $ACCEPTED_NETWORKS
-relayhost = [$EXT_RELAY_HOST]:$EXT_RELAY_PORT
+relayhost = [$SMTP_HOST]:$SMTP_PORT
 
 # smtp-out params
 smtp_sasl_auth_enable = yes
@@ -26,3 +26,4 @@ delay_warning_time = 1h
 mailbox_size_limit = 0
 readme_directory = no
 recipient_delimiter = +
+smtputf8_enable = no

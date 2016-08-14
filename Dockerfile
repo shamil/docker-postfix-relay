@@ -4,6 +4,7 @@ MAINTAINER Alex Simenduev <shamil.si@gmail.com>
 # install required packages
 RUN apk --no-cache add ca-certificates gettext postfix rsyslog supervisor
 
+
 # copy required files
 COPY bin/ /usr/local/bin/
 COPY conf/ /root/conf/
