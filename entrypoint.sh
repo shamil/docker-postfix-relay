@@ -18,6 +18,9 @@ export TLS_VERIFY=${TLS_VERIFY:-"may"}
 export DOLLAR='$'
 envsubst < /root/conf/postfix-main.cf > /etc/postfix/main.cf
 
+# Generate default alias DB
+newaliases
+
 # Launch
 rm -f /var/spool/postfix/pid/*.pid
 exec supervisord -n -c /etc/supervisord.conf
