@@ -7,7 +7,13 @@ set -e # exit on error
 	exit 1
 }
 
-export SMTP_LOGIN SMTP_PASSWORD
+if [ -n "$RECIPIENT_RESTRICTIONS" ]; then
+	RECIPIENT_RESTRICTIONS="inline:{$(echo $RECIPIENT_RESTRICTIONS | sed 's/\s\+/=OK, /g')=OK}"
+else
+	RECIPIENT_RESTRICTIONS=static:OK
+fi
+
+export SMTP_LOGIN SMTP_PASSWORD RECIPIENT_RESTRICTIONS
 export SMTP_HOST=${SMTP_HOST:-"email-smtp.us-east-1.amazonaws.com"}
 export SMTP_PORT=${SMTP_PORT:-"25"}
 export ACCEPTED_NETWORKS=${ACCEPTED_NETWORKS:-"192.168.0.0/16 172.16.0.0/12 10.0.0.0/8"}

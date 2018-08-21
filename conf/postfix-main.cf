@@ -7,6 +7,7 @@ inet_interfaces = all
 inet_protocols = ipv4
 
 # general params
+compatibility_level = 1
 myhostname = $HOSTNAME
 mynetworks = 127.0.0.0/8 [::1]/128 $ACCEPTED_NETWORKS
 relayhost = [$SMTP_HOST]:$SMTP_PORT
@@ -19,6 +20,9 @@ smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 smtp_tls_security_level = $TLS_VERIFY
 smtp_tls_session_cache_database = btree:${DOLLAR}{data_directory}/smtp_scache
 smtp_use_tls = $USE_TLS
+
+# RCPT TO restrictions
+smtpd_recipient_restrictions = check_recipient_access $RECIPIENT_RESTRICTIONS, reject
 
 # some tweaks
 biff = no

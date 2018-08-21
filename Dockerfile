@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.8
 MAINTAINER Alex Simenduev <shamil.si@gmail.com>
 
 # install required packages
