@@ -9,7 +9,6 @@ ENTRYPOINT ["/entrypoint.sh"]
 RUN apk --no-cache add ca-certificates gettext libintl postfix cyrus-sasl-plain cyrus-sasl-login tzdata rsyslog supervisor \
     && cp /usr/bin/envsubst /usr/local/bin/ \
     && apk --no-cache del gettext \
-    && ln -fs /root/conf/rsyslog.conf /etc/rsyslog.conf \
     && ln -fs /root/conf/supervisord.conf /etc/supervisord.conf
 
 # copy required files

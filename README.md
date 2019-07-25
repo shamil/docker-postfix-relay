@@ -29,6 +29,7 @@ external mail relay address and credentials. The image is tested with `Amazon SE
 | `SMTP_PASSWORD`          | Password to connect to the external relay. <br/> **Required**                                                                    |
 | `USE_TLS`                | Remote require tls. Must be `yes` or `no`. <br/> Default: `no`                                                                   |
 | `TLS_VERIFY`             | Trust level for checking remote side cert. <br/> Default: `may` (http://www.postfix.org/postconf.5.html#smtp_tls_security_level) |
+| `LOG_TIMESTAMPS`         | Prepend logs with ISO-8601 formatted timestamp. Must be `yes` to enable <br/> Default: `no`
 
 ## Exposed port(s)
 

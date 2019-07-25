@@ -24,6 +24,16 @@ export TLS_VERIFY=${TLS_VERIFY:-"may"}
 export DOLLAR='$'
 envsubst < /root/conf/postfix-main.cf > /etc/postfix/main.cf
 
+# Log
+if [ ${LOG_TIMESTAMPS:-"no"} == "yes" ]; then
+       LOG_FORMAT="timestampFormat"
+else
+       LOG_FORMAT="noTimestampFormat"
+fi
+export LOG_FORMAT
+
+envsubst '$LOG_FORMAT' < /root/conf/rsyslog.conf > /etc/rsyslog.conf
+
 # Generate default alias DB
 newaliases
 
