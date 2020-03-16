@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # from: https://github.com/Supervisor/supervisor/issues/712#issuecomment-184668764
 import sys
 import os

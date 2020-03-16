@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.11
 LABEL maintainer "Alex Simenduev <shamil.si@gmail.com>"
 
 EXPOSE 25
