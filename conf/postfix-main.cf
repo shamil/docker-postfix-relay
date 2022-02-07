@@ -18,7 +18,7 @@ smtp_sasl_password_maps = static:$SMTP_LOGIN:$SMTP_PASSWORD
 smtp_sasl_security_options = noanonymous
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 smtp_tls_security_level = $TLS_VERIFY
-smtp_tls_session_cache_database = btree:${DOLLAR}{data_directory}/smtp_scache
+smtp_tls_session_cache_database = lmdb:${DOLLAR}{data_directory}/smtp_scache
 smtp_use_tls = $USE_TLS
 
 # RCPT TO restrictions
