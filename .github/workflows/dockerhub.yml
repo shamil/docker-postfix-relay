@@ -22,4 +22,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: simenduev/postfix-relay:${{ github.ref_name }}
+        tags: |
+          simenduev/postfix-relay:${{ github.ref_name }}
+          simenduev/postfix-relay:latest
