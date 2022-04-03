@@ -17,6 +17,12 @@ external mail relay address and credentials. The image is tested with `Amazon SE
 * Doesn't use TLS on `smtpd` side.
 * And other changes to make the image as **KISS** as possible
 
+## Changed from version `1.3.0`
+
+* Remove `rsyslog` dependancy
+* Remove `supervisor`
+* Even more **KISS**, just single script used to configure and run `postfix`
+
 ## Environment variables
 
 | ENV. Variable            | Description                                                                                                                      |
@@ -38,9 +44,11 @@ Postfix on port `25`
 
 Launch Postfix container:
 
-    docker run -d -h relay.example.com --name="mailrelay" \
-        -e RECIPIENT_RESTRICTIONS="gmail.com test@example.com" \
-        -e SMTP_LOGIN=myLogin \
-        -e SMTP_PASSWORD=myPassword \
-        -p 25:25 \
-        simenduev/postfix-relay
+```shell
+docker run -d -h relay.example.com --name="mailrelay" \
+    -e RECIPIENT_RESTRICTIONS="gmail.com test@example.com" \
+    -e SMTP_LOGIN=myLogin \
+    -e SMTP_PASSWORD=myPassword \
+    -p 25:25 \
+    simenduev/postfix-relay
+```
